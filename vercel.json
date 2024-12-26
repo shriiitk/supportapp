@@ -1,27 +1,29 @@
 {
   "version": 2,
   "name": "business-insights-webapp",
-  "builds": [
-    {
-      "src": "src/**/*",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+  "projects": {
+    "frontend": {
+      "src": "src/",
+      "buildCommand": "npm run build",
+      "outputDirectory": "build"
     },
-    {
+    "backend-mock": {
       "src": "backend-mock/server.js",
-      "use": "@vercel/node"
+      "functions": {
+        "api/*": {
+          "runtime": "nodejs16.x"
+        }
+      }
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/backend-mock/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "source": "/(.*)",
+      "destination": "/frontend/$1"
     }
   ]
 }
