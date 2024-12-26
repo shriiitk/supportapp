@@ -12,7 +12,7 @@ const Chat = ({ initialData }) => {
     setMessages([...messages, newMessage]);
     setInput('');
 
-    const response = await fetch(`${config.backendUrl}/chat`, {
+    const response = await fetch(`${config.backendUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: input, data: initialData }),
