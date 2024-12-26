@@ -1,29 +1,5 @@
 {
-  "version": 2,
-  "name": "business-insights-webapp",
-  "projects": {
-    "frontend": {
-      "src": "src/",
-      "buildCommand": "npm run build",
-      "outputDirectory": "build"
-    },
-    "backend-mock": {
-      "src": "backend-mock/server.js",
-      "functions": {
-        "api/*": {
-          "runtime": "nodejs16.x"
-        }
-      }
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/frontend/$1"
-    }
-  ]
-}
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "http://localhost:4000/api/$1" }
+    ]
+  }
