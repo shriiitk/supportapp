@@ -1,20 +1,39 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const PORT = 4000;
 
 app.use(cors());
 app.use(express.json());
 
-// Mock scrape endpoint
-app.post('/scrape', (req, res) => {
-  const { businessName, website } = req.body;
-  res.json({ name: businessName, website, details: "Mock data scraped from website" });
+// Mock scraping endpoint
+app.post('/api/scrape', (req, res) => {
+    console.log('Scraping request received:', req.body);
+    const { businessName, website } = req.body;
+    if (!businessName || !website) {
+        return res.status(400).json({ error: 'Business name and website are required.' });
+    }
+    // Mock response data
+    res.json({
+        businessName,
+        website,
+        data: `Mock data for ${businessName} from ${website}`
+    });
 });
 
 // Mock chat endpoint
-app.post('/chat', (req, res) => {
-  const { query, data } = req.body;
-  res.json({ answer: `Mock answer for query '${query}' based on data from ${data.name}` });
+app.post('/api/chat', (req, res) => {
+    console.log('Chat request received:', req.body);
+    const { query, data } = req.body;
+    if (!query || !data) {
+        return res.status(400).json({ error: 'Query and data are required.' });
+    }
+    // Mock response
+    res.json({
+        answer: `Mock answer to "${query}" based on data "${data.data}".`
+    });
 });
 
-app.listen(4000, () => console.log('Mock server running on http://localhost:4000'));
+app.listen(PORT, () => {
+    console.log(`Mock backend running at http://localhost:${PORT}`);
+});
