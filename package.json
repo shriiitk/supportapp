@@ -1,6 +1,8 @@
 {
   "name": "business-insights",
   "version": "1.0.0",
+  "private": true,
+  "homepage": ".",
   "description": "Responsive web app to scrape business websites and chat based on the data collected.",
   "main": "src/index.js",
   "scripts": {
