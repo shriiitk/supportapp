@@ -6,6 +6,12 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log(`Request received: ${req.method} ${req.url}`);
+    console.log(`Headers: ${JSON.stringify(req.headers)}`);
+    next();
+});
+
 // Mock scraping endpoint
 app.post('/api/scrape', (req, res) => {
     console.log('Scraping request received:', req.body);
