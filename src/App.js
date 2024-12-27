@@ -11,7 +11,7 @@ const App = () => {
   const handleFormSubmit = async ({ businessName, website }) => {
     console.log('Form submission started:', { businessName, website });
     try {
-      const response = await fetch(`${config.backendUrl}/api/scrape`, {
+      const response = await fetch(`${config.backendUrl}/scrape`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ businessName, website }),
