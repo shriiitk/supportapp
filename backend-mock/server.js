@@ -11,6 +11,7 @@ app.post('/api/scrape', (req, res) => {
     console.log('Scraping request received:', req.body);
     const { businessName, website } = req.body;
     if (!businessName || !website) {
+        console.error('Error: Missing businessName or website');
         return res.status(400).json({ error: 'Business name and website are required.' });
     }
     // Mock response data
@@ -26,6 +27,7 @@ app.post('/api/chat', (req, res) => {
     console.log('Chat request received:', req.body);
     const { query, data } = req.body;
     if (!query || !data) {
+        console.error('Error: Missing query or data');
         return res.status(400).json({ error: 'Query and data are required.' });
     }
     // Mock response

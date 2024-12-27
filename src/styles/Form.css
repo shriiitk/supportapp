@@ -1,32 +1,32 @@
 .business-form {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 400px;
+  }
+  
+  input[type="text"], input[type="url"] {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
   }
   
-  .business-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-  }
-  
-  .business-form button {
-    padding: 10px;
-    background-color: #007BFF;
+  button {
+    padding: 10px 20px;
+    background: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
   }
   
-  .business-form button:hover {
-    background-color: #0056b3;
+  button:hover {
+    background: #0056b3;
   }
+  

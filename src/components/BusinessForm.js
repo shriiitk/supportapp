@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Form.css';
 
 const BusinessForm = ({ onSubmit }) => {
   const [businessName, setBusinessName] = useState('');
@@ -6,11 +7,12 @@ const BusinessForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Form submitted with:', { businessName, website });
     onSubmit({ businessName, website });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="business-form">
       <h2>Scrape Business Website</h2>
       <input
         type="text"
