@@ -7,11 +7,5 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "backend-mock/server.js" },
     { "src": "/(.*)", "dest": "/build/index.html" }
-  ],
-  "static": {
-    "headers": {
-      "source": "/build/static/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "max-age=31536000" }]
-    }
-  }
+  ]
 }
